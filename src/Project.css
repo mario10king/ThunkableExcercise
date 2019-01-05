@@ -1,0 +1,60 @@
+.project {
+  position: relative;
+  width: 800px;
+  height: 70px;
+  border-bottom: 0.25px solid rgba(0, 0, 0, 0.203436);
+  background: #FDFDFD;
+}
+
+.project-icon {
+  position: absolute;
+  left: 24px;
+  top: 20px;
+  height: 32px;
+}
+
+.project-title{
+  margin: 0;
+  position: absolute;
+  height: 30px;
+  left: 80px;
+  top: 22px;
+
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  font-size: 20px;
+
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.edit-icon {
+  position: absolute;
+  height: 24px;
+  left: 220px;
+  top: 25px;
+}
+
+.date {
+  margin: 0;
+  position: absolute;
+  height: 24px;
+  left: 435px;
+  top: 22px;
+
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 30px;
+  font-size: 14px;
+
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.delete-icon {
+  position: absolute;
+  width: 24px;
+  right: 32px;
+  top: 24px;
+}
