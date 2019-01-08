@@ -60,6 +60,7 @@ class Project extends Component {
           onMouseLeave={() => this.handleEditHover(false)}
           onClick={() => this.handleEditClick()}
           src={this.state.editIcon}
+          alt="edit"
         />
       </div>
     );
@@ -68,7 +69,7 @@ class Project extends Component {
 
     return (
       <div className="project">
-        <img className="project-icon" src={ProjectIcon} />
+        <img className="project-icon" src={ProjectIcon} alt="project icon"/>
         {display}
         <p className="date"> {this.props.project.date} </p>
         <img
@@ -77,6 +78,7 @@ class Project extends Component {
           onMouseLeave={() => this.handleDeleteHover(false)}
           onClick={(event) => this.props.handleDelete(event, this.props.project.id)}
           src={this.state.deleteIcon}
+          alt="delete"
         />
       </div>
     );

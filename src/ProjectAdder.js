@@ -31,7 +31,7 @@ class ProjectAdder extends Component {
         onMouseLeave={() => this.handleHover(false)}
         className="project-adder"
       >
-        <img id="plus-sign" src={PlusSign} />
+        <img id="plus-sign" src={PlusSign} alt="Plus Sign"/>
       </div>
     );
   }
