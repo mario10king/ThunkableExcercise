@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ProjectIcon from './assets/defaultProjectIcon_2x.png';
 import './NewProject.css';
 
@@ -19,6 +20,11 @@ class NewProject extends Component {
       </div>
     );
   }
+}
+
+NewProject.propTypes = {
+  handleCreate: PropTypes.func.isRequired,
+  handleTextChange: PropTypes.func.isRequired
 }
 
 export default NewProject;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import Project from './Project';
 import NewProject from './NewProject';
 import './Projects.css';
@@ -28,6 +29,14 @@ class Projects extends Component {
       </div>
     );
   }
+}
+
+Projects.propTypes = {
+  projects: PropTypes.array.isRequired,
+  handleTextChange: PropTypes.func.isRequired,
+  handleCreate: PropTypes.func.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 }
 
 export default Projects;

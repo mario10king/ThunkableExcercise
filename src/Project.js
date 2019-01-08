@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import ProjectIcon from './assets/defaultProjectIcon_2x.png';
 import DeleteIcon from './assets/DeleteIcon.svg';
 import DeleteIconHover from './assets/DeleteIcon_Hover.svg';
@@ -85,4 +86,11 @@ class Project extends Component {
   }
 }
 
+Project.propTypes = {
+  handleTextChange: PropTypes.func.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  project: PropTypes.object.isRequired
+
+}
 export default Project;

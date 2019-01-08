@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import PlusSign from './assets/Plus Sign.svg';
 import './ProjectAdder.css';
 
@@ -35,6 +36,10 @@ class ProjectAdder extends Component {
       </div>
     );
   }
+}
+
+ProjectAdder.propTypes = {
+  handleClick: PropTypes.func.isRequired  
 }
 
 export default ProjectAdder;
