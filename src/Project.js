@@ -45,7 +45,7 @@ class Project extends Component {
         <input
           type="text"
           onChange={this.props.handleTextChange}
-          id="project-input"
+          className="project-input"
           placeholder="Name your project"
         />
         <input type="submit" style={{ display: 'none' }} />

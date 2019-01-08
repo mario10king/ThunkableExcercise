@@ -58,3 +58,26 @@
   right: 32px;
   top: 24px;
 }
+
+.project-input {
+  position: absolute;
+  width: 186px;
+  height: 30px;
+  right: 533px;
+  top: 21px;
+  background: #FFFFFF;
+  border: 1px solid #40A9FF;
+  border-radius: 2px;
+
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 30px;
+  font-size: 16px;
+  text-indent: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.project-input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
