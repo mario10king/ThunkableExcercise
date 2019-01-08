@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ProjectAdder from './ProjectAdder';
 import Projects from './Projects';
-import NewProject from './NewProject';
 import './Content.css';
 
 class Content extends Component {
