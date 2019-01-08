@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProjectAdder from './ProjectAdder';
 import Projects from './Projects';
+import Modal from './Modal';
 import './Content.css';
 
 class Content extends Component {
@@ -11,7 +12,8 @@ class Content extends Component {
       counter: 0,
       projects: [],
       newProject: false,
-      titleText: ''
+      titleText: '',
+      showDeleteModal: false,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -19,7 +21,9 @@ class Content extends Component {
     this.getDate = this.getDate.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
+    this.handleDeleteIconClick = this.handleDeleteIconClick.bind(this);
+    this.handleNoInModal = this.handleNoInModal.bind(this);
+    this.handleYesInModal = this.handleYesInModal.bind(this);
   }
 
   getDate() {
@@ -82,12 +86,20 @@ class Content extends Component {
     });
   }
 
-  handleDelete(event, id) {
+  handleDeleteIconClick(event, id) {
     event.preventDefault();
+    this.setState({ showDeleteModal: true, deleteId: id});
+  }
+
+  handleYesInModal(event, id){
     var projects = this.state.projects.filter(project => {
       return project.id !== id;
     });
-    this.setState({ projects: projects });
+    this.setState({ showDeleteModal: false, projects: projects });
+  }
+  
+  handleNoInModal(event){
+    this.setState({ showDeleteModal: false });
   }
 
   render() {
@@ -97,11 +109,12 @@ class Content extends Component {
         <Projects
           handleCreate={this.handleCreate}
           handleUpdate={this.handleUpdate}
-          handleDelete={this.handleDelete}
+          handleDelete={this.handleDeleteIconClick}
           handleTextChange={this.handleTextChange}
           newProject={this.state.newProject}
           projects={this.state.projects}
         />
+        {this.state.showDeleteModal && <Modal handleNo={this.handleNoInModal} handleYes={this.handleYesInModal} id={this.state.deleteId}/>}
       </div>
     );
   }
