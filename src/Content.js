@@ -16,21 +16,27 @@ class Content extends Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
-    this.formatDate = this.formatDate.bind(this);
+    this.getDate = this.getDate.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
-  formatDate() {
+  getDate() {
     var date = new Date();
-    var dateArray = date.toString().split(" ")
-    var month = dateArray[1]
-    var day = dateArray[2]
-    var year = dateArray[3]
-    var minutes = dateArray[4].split(":")[1]
+    var dateArray = date.toString().split(' ');
+    var month = dateArray[1];
+    var day = dateArray[2];
+    var year = dateArray[3];
+    var minutes = dateArray[4].split(':')[1];
     var hours = date.getHours();
-    var time = hours % 12 + ":" + minutes
-    var timeSuffix = hours >= 12 ? 'pm' : 'am' 
+    var formattedHours = hours % 12;
+    var timeSuffix = hours >= 12 ? 'pm' : 'am';
+    if (formattedHours === 0) {
+      formattedHours = 12;
+    }
+    var time = formattedHours + ':' + minutes;
 
     return `${month} ${day}, ${year}\u00A0\u00A0${time}${timeSuffix}`;
   }
@@ -43,9 +49,23 @@ class Content extends Component {
     this.setState({ titleText: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleUpdate(event, id) {
     event.preventDefault();
+    var projects = this.state.projects.map(project => {
+      if (project.id === id) {
+        return {
+          id: project.id,
+          title: this.state.titleText,
+          date: project.date
+        };
+      }
+      return project;
+    });
+    this.setState({ projects: projects });
+  }
 
+  handleCreate(event) {
+    event.preventDefault();
     this.setState(prevState => {
       return {
         projects: [
@@ -53,7 +73,7 @@ class Content extends Component {
           {
             id: prevState.counter,
             title: prevState.titleText,
-            date: this.formatDate()
+            date: this.getDate()
           }
         ],
         counter: prevState.counter + 1,
@@ -63,16 +83,22 @@ class Content extends Component {
     });
   }
 
-  handleDeleteProject() {}
-
-  handleEditProject() {}
+  handleDelete(event, id) {
+    event.preventDefault();
+    var projects = this.state.projects.filter(project => {
+      return project.id !== id;
+    });
+    this.setState({ projects: projects });
+  }
 
   render() {
     return (
       <div className="content">
         <ProjectAdder handleClick={this.handleClick} />
         <Projects
-          handleSubmit={this.handleSubmit}
+          handleCreate={this.handleCreate}
+          handleUpdate={this.handleUpdate}
+          handleDelete={this.handleDelete}
           handleTextChange={this.handleTextChange}
           newProject={this.state.newProject}
           projects={this.state.projects}

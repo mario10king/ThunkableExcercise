@@ -10,7 +10,8 @@ class Projects extends Component {
         <Project
           key={project.id}
           handleTextChange={this.props.handleTextChange}
-          handleSubmit={this.props.handleSubmit}
+          handleUpdate={this.props.handleUpdate}
+          handleDelete={this.props.handleDelete}
           project={project}
         />
       );
@@ -20,7 +21,7 @@ class Projects extends Component {
         {this.props.newProject && (
           <NewProject
             handleTextChange={this.props.handleTextChange}
-            handleSubmit={this.props.handleSubmit}
+            handleCreate={this.props.handleCreate}
           />
         )}
         {projects}

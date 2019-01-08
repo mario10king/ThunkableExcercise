@@ -12,7 +12,8 @@ class Project extends Component {
 
     this.state = {
       editIcon: EditIcon,
-      deleteIcon: DeleteIcon
+      deleteIcon: DeleteIcon,
+      edit: false
     };
 
     this.handleEditHover = this.handleEditHover.bind(this);
@@ -29,24 +30,52 @@ class Project extends Component {
     this.setState({ deleteIcon: icon });
   }
 
-  handleEditClick() {}
+  handleEditClick() {
+    this.setState({ edit: true });
+  }
 
   render() {
-    return (
-      <div className="project">
-        <img className="project-icon" src={ProjectIcon} />
+    var form = (
+      <form
+        onSubmit={event => {
+          this.setState({ edit: false });
+          this.props.handleUpdate(event, this.props.project.id);
+        }}
+      >
+        <input
+          type="text"
+          onChange={this.props.handleTextChange}
+          id="project-input"
+          placeholder="Name your project"
+        />
+        <input type="submit" style={{ display: 'none' }} />
+      </form>
+    );
+    var title = (
+      <div>
         <p className="project-title">{this.props.project.title}</p>
         <img
           className="edit-icon"
           onMouseEnter={() => this.handleEditHover(true)}
           onMouseLeave={() => this.handleEditHover(false)}
+          onClick={() => this.handleEditClick()}
           src={this.state.editIcon}
         />
+      </div>
+    );
+
+    var display = this.state.edit ? form : title;
+
+    return (
+      <div className="project">
+        <img className="project-icon" src={ProjectIcon} />
+        {display}
         <p className="date"> {this.props.project.date} </p>
         <img
           className="delete-icon"
           onMouseEnter={() => this.handleDeleteHover(true)}
           onMouseLeave={() => this.handleDeleteHover(false)}
+          onClick={(event) => this.props.handleDelete(event, this.props.project.id)}
           src={this.state.deleteIcon}
         />
       </div>
