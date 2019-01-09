@@ -138,7 +138,7 @@ Project.propTypes = {
   project: PropTypes.object.isRequired,
   connectDragSource: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
-  isDragging: PropTypes.func.isRequired
+  isDragging: PropTypes.bool.isRequired
 };
 export default DropTarget(Types.PROJECT, projectTarget, collectTarget)(
   DragSource(Types.PROJECT, projectSource, collectSource)(Project)
