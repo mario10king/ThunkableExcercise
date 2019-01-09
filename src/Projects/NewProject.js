@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ProjectIcon from '../assets/defaultProjectIcon_2x.png';
 import style from './NewProject.module.css';
