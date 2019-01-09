@@ -1,68 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Thunkable Excercise
+### Summary
+- CRUD Application for Projects. 
+- Created using creat-react-app.
+- No backend so no data persistence.
+- You can move the projects around by dragging and dropping.
+### How to run the app in development mode?
+**`npm start`** 
+### Library/Framework Choices
+- For the drag and drop functionality I used the library react-dnd. This seems to be the most robust solution for react. But for my specific case maybe a libary like react-beatiful-dnd would have been a better choice.
+- I wrote all the CSS myself instead of using a UI framework like Ant Design. I explored Ant Design for a short time but it seemed like it wasn't too friendly in integrating with my custom styles or to flexible in changing their styles. I could be wrong though so this would be something I would explore further.
+### Why no state management library?
+For an app this small I believed it would be overkill to use something like redux. Only a few components are keeping state and we are not passing props more than a couple levels down.
+### What would I work on next?
+- Making it more mobile friendly. The site is already pretty responsive but there is more I can do. The two big steps I would take would be using media-queries to make the project box smaller after a certain screen size. This would probably require not to show as much information from each project. Secondly I would have to make the drag and drop work on touchscreens.
+- Make the drag and drop seem more natural. Even though it works I feel like I can make it seem more intuitive and natural for people to use.
+### How would I change the mock-up?
+- The only change I would make from the mock up is somehow show that the projects could be dragged and dropped. There is no real way for users to figure this out. I tried adding a rearrange icon at the edge of the project but I did not like how it looked.
