@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import PlusSign from './assets/Plus Sign.svg';
+import PlusSign from '../assets/Plus Sign.svg';
 import style from './ProjectAdder.module.css';
 
 class ProjectAdder extends Component {

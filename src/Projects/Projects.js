@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ProjectAdder from './ProjectAdder';
-import Projects from './Projects';
+import DisplayProjects from './DisplayProjects';
 import Modal from './Modal';
-import style from './Content.module.css';
+import style from './Projects.module.css';
 
-class Content extends Component {
+class Projects extends Component {
   constructor(props) {
     super(props);
 
@@ -118,7 +118,7 @@ class Content extends Component {
     return (
       <div className={style.content}>
         <ProjectAdder handleClick={this.handleClick} />
-        <Projects
+        <DisplayProjects
           handleCreate={this.handleCreate}
           handleUpdate={this.handleUpdate}
           handleDelete={this.handleDeleteIconClick}
@@ -133,4 +133,4 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export default Projects;

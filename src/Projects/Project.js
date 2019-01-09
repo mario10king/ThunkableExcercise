@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { DragSource, DropTarget } from 'react-dnd'
-import ProjectIcon from './assets/defaultProjectIcon_2x.png';
-import DeleteIcon from './assets/DeleteIcon.svg';
-import DeleteIconHover from './assets/DeleteIcon_Hover.svg';
-import EditIcon from './assets/EditIcon.svg';
-import EditIconHover from './assets/EditIcon_Hover.svg';
+import ProjectIcon from '../assets/defaultProjectIcon_2x.png';
+import DeleteIcon from '../assets/DeleteIcon.svg';
+import DeleteIconHover from '../assets/DeleteIcon_Hover.svg';
+import EditIcon from '../assets/EditIcon.svg';
+import EditIconHover from '../assets/EditIcon_Hover.svg';
 import style from './Project.module.css';
 
 const Types = {

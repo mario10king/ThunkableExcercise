@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './assets/ThunkableBeaver.png'
+import logo from '../assets/ThunkableBeaver.png'
 import style from './Header.module.css';
 
 class Header extends Component {
