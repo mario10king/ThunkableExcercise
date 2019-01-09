@@ -6,7 +6,7 @@ import DeleteIcon from './assets/DeleteIcon.svg';
 import DeleteIconHover from './assets/DeleteIcon_Hover.svg';
 import EditIcon from './assets/EditIcon.svg';
 import EditIconHover from './assets/EditIcon_Hover.svg';
-import './Project.css';
+import style from './Project.module.css';
 
 const Types = {
   PROJECT: 'project',
@@ -83,7 +83,7 @@ class Project extends Component {
         <input
           type="text"
           onChange={this.props.handleTextChange}
-          className="project-input"
+          className={style["project-input"]}
           placeholder="Name your project"
         />
         <input type="submit" style={{ display: 'none' }} />
@@ -91,9 +91,9 @@ class Project extends Component {
     );
     var title = (
       <div>
-        <p className="project-title">{this.props.project.title}</p>
+        <p className={style["project-title"]}>{this.props.project.title}</p>
         <img
-          className="edit-icon"
+          className={style["edit-icon"]}
           onMouseEnter={() => this.handleEditHover(true)}
           onMouseLeave={() => this.handleEditHover(false)}
           onClick={() => this.handleEditClick()}
@@ -103,13 +103,15 @@ class Project extends Component {
       </div>
     );
     var display = this.state.edit ? form : title;
+    var draggingStyle = isDragging ? {visibility: 'hidden'} : {};
+
     return connectDropTarget(connectDragSource(
-      <div className="project" style={isDragging ? {visibility: 'hidden'} : {}}>
-        <img className="project-icon" src={ProjectIcon} alt="project icon"/>
+      <div className={style["project"]} style={draggingStyle}>
+        <img className={style["project-icon"]} src={ProjectIcon} alt="project icon"/>
         {display}
-        <p className="date"> {this.props.project.date} </p>
+        <p className={style["date"]}> {this.props.project.date} </p>
         <img
-          className="delete-icon"
+          className={style["delete-icon"]}
           onMouseEnter={() => this.handleDeleteHover(true)}
           onMouseLeave={() => this.handleDeleteHover(false)}
           onClick={(event) => this.props.handleDelete(event, this.props.project.id)}

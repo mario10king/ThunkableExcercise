@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import Project from './Project';
 import NewProject from './NewProject';
-import './Projects.css';
+import style from './Projects.module.css';
 
 class Projects extends Component {
   render() {
@@ -19,7 +19,7 @@ class Projects extends Component {
       );
     });
     return (
-      <div className="projects">
+      <div className={style["projects"]}>
         {this.props.newProject && (
           <NewProject
             handleTextChange={this.props.handleTextChange}

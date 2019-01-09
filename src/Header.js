@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import logo from './assets/ThunkableBeaver.png'
-import './Header.css';
+import style from './Header.module.css';
 
 class Header extends Component {
   render() {
     return (
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="title"> MY PROJECTS </h1>
+      <header className={style["App-header"]}>
+        <img src={logo} className={style["App-logo"]} alt="logo" />
+        <h1 className={style.title}> MY PROJECTS </h1>
       </header>
     )
   }

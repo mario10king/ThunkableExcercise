@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProjectAdder from './ProjectAdder';
 import Projects from './Projects';
 import Modal from './Modal';
-import './Content.css';
+import style from './Content.module.css';
 
 class Content extends Component {
   constructor(props) {
@@ -116,7 +116,7 @@ class Content extends Component {
 
   render() {
     return (
-      <div className="content">
+      <div className={style.content}>
         <ProjectAdder handleClick={this.handleClick} />
         <Projects
           handleCreate={this.handleCreate}
