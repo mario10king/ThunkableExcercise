@@ -13,6 +13,7 @@ class Projects extends Component {
           handleTextChange={this.props.handleTextChange}
           handleUpdate={this.props.handleUpdate}
           handleDelete={this.props.handleDelete}
+          handleDrop={this.props.handleDrop}
           project={project}
         />
       );
@@ -37,6 +38,7 @@ Projects.propTypes = {
   handleCreate: PropTypes.func.isRequired,
   handleUpdate: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
+  handleDrop: PropTypes.func.isRequired,
 }
 
 export default Projects;

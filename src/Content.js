@@ -22,6 +22,7 @@ class Content extends Component {
     this.handleCreate = this.handleCreate.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDeleteIconClick = this.handleDeleteIconClick.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
     this.handleNoInModal = this.handleNoInModal.bind(this);
     this.handleYesInModal = this.handleYesInModal.bind(this);
   }
@@ -46,6 +47,17 @@ class Content extends Component {
 
   handleClick() {
     this.setState({ newProject: true });
+  }
+
+  handleDrop(sourceId, targetId) {
+    var {projects} = this.state
+    var newProjects = projects.filter(project => project.id !== sourceId);
+    var sourceProject = projects.find(project => project.id === sourceId);
+    var indexOfTarget = projects.findIndex(project => project.id === targetId);
+
+    newProjects.splice(indexOfTarget, 0, sourceProject)
+
+    this.setState({projects: newProjects});
   }
 
   handleTextChange(event) {
@@ -110,6 +122,7 @@ class Content extends Component {
           handleCreate={this.handleCreate}
           handleUpdate={this.handleUpdate}
           handleDelete={this.handleDeleteIconClick}
+          handleDrop={this.handleDrop}
           handleTextChange={this.handleTextChange}
           newProject={this.state.newProject}
           projects={this.state.projects}

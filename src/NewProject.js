@@ -7,7 +7,7 @@ class NewProject extends Component {
   render() {
     return (
       <div className="project">
-        <img className="project-icon" src={ProjectIcon} alt="project icon"/>
+        <img className="project-new-icon" src={ProjectIcon} alt="project icon"/>
         <form onSubmit={this.props.handleCreate}>
           <input
             type="text"
