@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import { DragSource, DropTarget } from 'react-dnd'
+import PropTypes from 'prop-types';
+import { DragSource, DropTarget } from 'react-dnd';
 import ProjectIcon from '../assets/defaultProjectIcon_2x.png';
 import DeleteIcon from '../assets/DeleteIcon.svg';
 import DeleteIconHover from '../assets/DeleteIcon_Hover.svg';
@@ -9,37 +9,37 @@ import EditIconHover from '../assets/EditIcon_Hover.svg';
 import style from './Project.module.css';
 
 const Types = {
-  PROJECT: 'project',
+  PROJECT: 'project'
 };
 
 const projectSource = {
   beginDrag(props) {
     return {
-      id: props.project.id 
-    }  
+      id: props.project.id
+    };
   }
-}
+};
 
 function collectSource(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging()
-  }
+  };
 }
 
 const projectTarget = {
   drop(props, monitor) {
-    var sourceId = monitor.getItem().id
-    var targetId = props.project.id
+    var sourceId = monitor.getItem().id;
+    var targetId = props.project.id;
 
-    props.handleDrop(sourceId, targetId)
+    props.handleDrop(sourceId, targetId);
   }
-}
+};
 
 function collectTarget(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget()
-  }
+  };
 }
 
 class Project extends Component {
@@ -83,7 +83,7 @@ class Project extends Component {
         <input
           type="text"
           onChange={this.props.handleTextChange}
-          className={style["project-input"]}
+          className={style['project-input']}
           placeholder="Name your project"
         />
         <input type="submit" style={{ display: 'none' }} />
@@ -91,9 +91,9 @@ class Project extends Component {
     );
     var title = (
       <div>
-        <p className={style["project-title"]}>{this.props.project.title}</p>
+        <p className={style['project-title']}>{this.props.project.title}</p>
         <img
-          className={style["edit-icon"]}
+          className={style['edit-icon']}
           onMouseEnter={() => this.handleEditHover(true)}
           onMouseLeave={() => this.handleEditHover(false)}
           onClick={() => this.handleEditClick()}
@@ -103,23 +103,31 @@ class Project extends Component {
       </div>
     );
     var display = this.state.edit ? form : title;
-    var draggingStyle = isDragging ? {visibility: 'hidden'} : {};
+    var draggingStyle = isDragging ? { visibility: 'hidden' } : {};
 
-    return connectDropTarget(connectDragSource(
-      <div className={style["project"]} style={draggingStyle}>
-        <img className={style["project-icon"]} src={ProjectIcon} alt="project icon"/>
-        {display}
-        <p className={style["date"]}> {this.props.project.date} </p>
-        <img
-          className={style["delete-icon"]}
-          onMouseEnter={() => this.handleDeleteHover(true)}
-          onMouseLeave={() => this.handleDeleteHover(false)}
-          onClick={(event) => this.props.handleDelete(event, this.props.project.id)}
-          src={this.state.deleteIcon}
-          alt="delete"
-        />
-      </div>
-    ));
+    return connectDropTarget(
+      connectDragSource(
+        <div className={style['project']} style={draggingStyle}>
+          <img
+            className={style['project-icon']}
+            src={ProjectIcon}
+            alt="project icon"
+          />
+          {display}
+          <p className={style['date']}> {this.props.project.date} </p>
+          <img
+            className={style['delete-icon']}
+            onMouseEnter={() => this.handleDeleteHover(true)}
+            onMouseLeave={() => this.handleDeleteHover(false)}
+            onClick={event =>
+              this.props.handleDelete(event, this.props.project.id)
+            }
+            src={this.state.deleteIcon}
+            alt="delete"
+          />
+        </div>
+      )
+    );
   }
 }
 
@@ -131,5 +139,7 @@ Project.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
   isDragging: PropTypes.func.isRequired
-}
-export default DropTarget(Types.PROJECT, projectTarget, collectTarget)(DragSource(Types.PROJECT, projectSource, collectSource)(Project));
+};
+export default DropTarget(Types.PROJECT, projectTarget, collectTarget)(
+  DragSource(Types.PROJECT, projectSource, collectSource)(Project)
+);

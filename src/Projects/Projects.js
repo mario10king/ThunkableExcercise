@@ -13,7 +13,7 @@ class Projects extends Component {
       projects: [],
       newProject: false,
       titleText: '',
-      showDeleteModal: false,
+      showDeleteModal: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -50,14 +50,14 @@ class Projects extends Component {
   }
 
   handleDrop(sourceId, targetId) {
-    var {projects} = this.state
+    var { projects } = this.state;
     var newProjects = projects.filter(project => project.id !== sourceId);
     var sourceProject = projects.find(project => project.id === sourceId);
     var indexOfTarget = projects.findIndex(project => project.id === targetId);
 
-    newProjects.splice(indexOfTarget, 0, sourceProject)
+    newProjects.splice(indexOfTarget, 0, sourceProject);
 
-    this.setState({projects: newProjects});
+    this.setState({ projects: newProjects });
   }
 
   handleTextChange(event) {
@@ -100,17 +100,17 @@ class Projects extends Component {
 
   handleDeleteIconClick(event, id) {
     event.preventDefault();
-    this.setState({ showDeleteModal: true, deleteId: id});
+    this.setState({ showDeleteModal: true, deleteId: id });
   }
 
-  handleYesInModal(event, id){
+  handleYesInModal(event, id) {
     var projects = this.state.projects.filter(project => {
       return project.id !== id;
     });
     this.setState({ showDeleteModal: false, projects: projects });
   }
-  
-  handleNoInModal(event){
+
+  handleNoInModal(event) {
     this.setState({ showDeleteModal: false });
   }
 
@@ -127,7 +127,13 @@ class Projects extends Component {
           newProject={this.state.newProject}
           projects={this.state.projects}
         />
-        {this.state.showDeleteModal && <Modal handleNo={this.handleNoInModal} handleYes={this.handleYesInModal} id={this.state.deleteId}/>}
+        {this.state.showDeleteModal && (
+          <Modal
+            handleNo={this.handleNoInModal}
+            handleYes={this.handleYesInModal}
+            id={this.state.deleteId}
+          />
+        )}
       </div>
     );
   }

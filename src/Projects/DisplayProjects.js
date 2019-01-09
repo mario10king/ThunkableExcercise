@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Project from './Project';
 import NewProject from './NewProject';
 import style from './DisplayProjects.module.css';
@@ -18,7 +18,7 @@ var DisplayProjects = props => {
     );
   });
   return (
-    <div className={style["projects"]}>
+    <div className={style['projects']}>
       {props.newProject && (
         <NewProject
           handleTextChange={props.handleTextChange}
@@ -28,7 +28,7 @@ var DisplayProjects = props => {
       {projects}
     </div>
   );
-}
+};
 
 DisplayProjects.propTypes = {
   projects: PropTypes.array.isRequired,
@@ -36,7 +36,7 @@ DisplayProjects.propTypes = {
   handleCreate: PropTypes.func.isRequired,
   handleUpdate: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
-  handleDrop: PropTypes.func.isRequired,
-}
+  handleDrop: PropTypes.func.isRequired
+};
 
 export default DisplayProjects;

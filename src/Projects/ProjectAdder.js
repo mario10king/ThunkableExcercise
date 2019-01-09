@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import PlusSign from '../assets/Plus Sign.svg';
 import style from './ProjectAdder.module.css';
 
@@ -30,16 +30,16 @@ class ProjectAdder extends Component {
         style={this.state.style}
         onMouseEnter={() => this.handleHover(true)}
         onMouseLeave={() => this.handleHover(false)}
-        className={style["project-adder"]}
+        className={style['project-adder']}
       >
-        <img className={style["plus-sign"]} src={PlusSign} alt="Plus Sign"/>
+        <img className={style['plus-sign']} src={PlusSign} alt="Plus Sign" />
       </div>
     );
   }
 }
 
 ProjectAdder.propTypes = {
-  handleClick: PropTypes.func.isRequired  
-}
+  handleClick: PropTypes.func.isRequired
+};
 
 export default ProjectAdder;
